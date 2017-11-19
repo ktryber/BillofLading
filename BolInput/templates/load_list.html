@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for load in loads %}
+    <div class="load">
+        <div class="date">
+            <p>{{ load.date_created }}</p>
+        </div>
+        <h1><a href="{% url 'load_detail' pk=load.pk %}">{{ load.load_number }}</a></h1>
+        
+    </div>
+    {% endfor %}
+{% endblock %}            
