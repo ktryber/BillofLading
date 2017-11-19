@@ -1,12 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
+<table class="table">
+    <tr>
+        <th>Load Number</th>
+        <th>Created Date</th>
+        <th>Carrier</th>
+        <th>Shipper</th>
+        <th>Consignee</th>
+        <th>Pickup Date</th>
+        <th>Delivery Date</th>
+        <th>PO Number</th>
+    </tr>
     {% for load in loads %}
-    <div class="load">
-        <div class="date">
-            <p>{{ load.date_created }}</p>
-        </div>
-        <h1><a href="{% url 'load_detail' pk=load.pk %}">{{ load.load_number }}</a></h1>
+    <tr>
+        <td><a href="{% url 'load_detail' pk=load.pk %}">{{ load.load_number}}</a></td>
+        <td>{{ load.date_created }}</td>
+        <td>{{ load.carrier }}</td>
+        <td>{{ load.shipper }}</td>
+        <td>{{ load.consignee }}</td>
+        <td>{{ load.pickup_date }}</td>
+        <td>{{ load.delivery_date }}</td>
+        <td>{{ load.po_number }}</td>
         
-    </div>
+    </tr>
     {% endfor %}
+</table>  
 {% endblock %}            

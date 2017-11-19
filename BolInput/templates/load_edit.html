@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#datepicker" ).datepicker();
+} );
+</script>
     <h1>New Load</h1>
     <form method="POST" class="load-form">{% csrf_token %}
         {{ form.as_p }}

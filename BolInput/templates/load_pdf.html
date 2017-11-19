@@ -1,0 +1,16 @@
+{% extends "easy_pdf/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ load.load_number }}</h1>
+        <p>{{ load.carrier }}</p>
+        <p>{{ load.pickup_date }}</p>
+        <p>{{ load.delivery_date }}</p>
+        <p>{{ load.shipper }}</p>
+        <p>{{ load.consignee }}</p>
+        <p>{{ load.po_number }}</p>
+        <p>{{ load.pu_number }}</p>
+        <p>{{ load.pieces }}</p>
+        <p>{{ load.description }}</p>
+    </div>
+{% endblock %}
