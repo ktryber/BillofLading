@@ -26,7 +26,7 @@ SECRET_KEY = 'oy)y_oc%ck6e*in3&&slrs9z@)cd97e2q6&v9_2)jk18+jq3(_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = [u'0.0.0.0', '.herokuapp.com']
 
 
 # Application definition
@@ -122,10 +122,10 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = 'bolinput/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles'),
+STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'bolinput/static'),
+    os.path.join(BASE_DIR, 'bolinput/static'),
 )
