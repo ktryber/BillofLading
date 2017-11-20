@@ -1,18 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from phonenumber_field.modelfields import PhoneNumberField
 
-class Shipper(models.Model):
-    shipper_name = models.CharField(max_length=150)
-    shipper_street = models.CharField(max_length=True)
-    shipper_state = models.CharField(max_length=2)
-    shipper_phone = PhoneNumberField()
-
-class Consignee(models.Model):
-    consignee_name = models.CharField(max_length=150)
-    consignee_street = models.CharField(max_length=True)
-    consignee_state = models.CharField(max_length=2)
-    consignee_phone = PhoneNumberField()
 
 class Load(models.Model):
     load_number = models.IntegerField()
