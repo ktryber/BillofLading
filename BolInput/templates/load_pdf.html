@@ -1,16 +1,201 @@
 {% extends "easy_pdf/base.html" %}
 
 {% block content %}
-    <div class="container">
-        <h1>{{ load.load_number }}</h1>
-        <p>{{ load.carrier }}</p>
-        <p>{{ load.pickup_date }}</p>
-        <p>{{ load.delivery_date }}</p>
-        <p>{{ load.shipper }}</p>
-        <p>{{ load.consignee }}</p>
-        <p>{{ load.po_number }}</p>
-        <p>{{ load.pu_number }}</p>
-        <p>{{ load.pieces }}</p>
-        <p>{{ load.description }}</p>
-    </div>
+<style type="text/css">
+.PotrInfo {
+    
+}
+
+.Header-Right {
+  border: 1px solid #eee;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.Carrier {
+  border: 1px solid black;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.Load-Header {
+  border: 1px solid black;
+  background: #eee;
+  padding-top: 5px;
+}
+
+.Load-Header-Pieces {
+  border: 1px solid black;
+  background: #eee;
+  padding-top: 5px;
+}
+
+.Load-Contents {
+  border: 1px solid black;
+  padding-top: 5px;
+}
+
+.Notes-Header {
+  border: 1px solid black;
+  background: #eee;
+  padding-top: 5px;
+}
+
+.Notes-Body {
+  border: 1px solid black;
+  height: 100;
+}
+
+.Signature-Header {
+  border: 1px solid black;
+  background: #eee;
+  padding-top: 5px;
+}
+
+.Signature-Box {
+  border: 1px solid black;
+  padding-top: 5px;
+  height: 50;
+}
+</style>
+<div class="container">
+  <h1 style="text-align: center">Bill of Lading</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="PotrInfo"><h2>Power Only Transit LLC</h2></th>
+          <th scope="col"></th>
+          <th class="Header-Right">Load Number</th>
+          <td class="Header-Right">{{ load.load_number }}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="PotrInfo"><p>5546 Camino Al Norte 2-222</p></th>
+          <td></td>
+          <th class="Header-Right">Pickup Date</th>
+          <td class="Header-Right">{{ load.pickup_date }}</td>
+        </tr>
+        <tr>
+          <th scope="row" class="PotrInfo"><p>North Las Vegas, NV 89031</p></th>
+            <td></td>
+            <th class="Header-Right">Delivery Date</th>
+            <td class="Header-Right">{{ load.delivery_date }}</td>
+        </tr>
+        <tr>
+          <th scope="row" class="PotrInfo"><p>Phone: 702-840-3285</p></th>
+          <td></td>
+          <th class="Header-Right">PO Number</th>
+          <td class="Header-Right">{{ load.pu_number }}</td>
+        </tr>
+        <tr>
+          <th scope="row" class="PotrInfo"><p>Fax: 888-206-5831</p></th>
+        </tr>
+      </tbody>
+    </table><br><br>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="Carrier">Carrier</th>
+          <td class="Carrier">{{ load.carrier }}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="Carrier">Shipper</th>
+          <td class="Carrier">{{ load.shipper }}</td>
+          <th class="Carrier">Consignee</th>
+          <td class="Carrier">{{ load.consignee }}</td>
+        </tr>
+      </tbody>
+    </table><br><br>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="Load-Header-Pieces">Pieces</th>          
+          <th colspan="4" class="Load-Header">Description</th>
+          <th class="Load-Header">Weight</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="Load-Contents">{{ load.pieces }}</td>
+          <td colspan="4" class="Load-Contents">{{ load.description }}</td>
+          <td class="Load-Contents"></td>               
+        </tr>
+        <tr>
+          <td class="Load-Contents"></td>
+          <td colspan="4" class="Load-Contents"></td>
+          <td class="Load-Contents"></td>
+        </tr>
+        <tr>
+          <td class="Load-Contents"></td>
+          <td colspan="4" class="Load-Contents"></td>
+          <td class="Load-Contents"></td>
+        </tr>
+        <tr>
+          <td class="Load-Contents"></td>
+          <td colspan="4" class="Load-Contents"></td>
+          <td class="Load-Contents"></td>
+        </tr>
+        <tr>
+          <td class="Load-Contents"></td>
+          <td colspan="4" class="Load-Contents"></td>
+          <td class="Load-Contents"></td>
+        </tr>
+      </tbody>
+    </table><br><br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="Notes-Header">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="Notes-Body"></td>
+        </tr>
+      </tbody>
+    </table><br>
+    <h1 style="text-align: center">Shipping Signatures</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="Signature-Header" colspan="2">Shipper</th>
+          <th class="Signature-Header" colspan="2">Carrier</th>
+          <th class="Signature-Header">Date</th>
+          <th class="Signature-Header">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="Signature-Box" colspan="2"></td>
+          <td class="Signature-Box" colspan="2"></td>
+          <td class="Signature-Box"></td>
+          <td class="Signature-Box"></td>
+        </tr>
+      </tbody>
+    </table><br>
+    <h1 style="text-align: center">Delivery Signatures</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th class="Signature-Header" colspan="2">Consignee Name</th>
+            <th class="Signature-Header" colspan="2">Signature</th>
+            <th class="Signature-Header">Date</th>
+            <th class="Signature-Header">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="Signature-Box" colspan="2"></td>
+            <td class="Signature-Box" colspan="2"></td>
+            <td class="Signature-Box"></td>
+            <td class="Signature-Box"></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
 {% endblock %}
